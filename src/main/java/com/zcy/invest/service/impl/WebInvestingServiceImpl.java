@@ -51,7 +51,7 @@ public class WebInvestingServiceImpl implements WebInvestingService {
         //外汇集合
         RepeatHttpParamList fxList = new RepeatHttpParamList();
 
-        for(int i=1;i<=150;i++){
+        for(int i=1;i<=100;i++){
             fxList.add(i);
         }
 
