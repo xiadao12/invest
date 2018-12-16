@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 查询 https://www.investing.com/
+ * 查询 https://www.investing.com/ 外汇
  * create date : 2018/12/1
  */
 @RestController
