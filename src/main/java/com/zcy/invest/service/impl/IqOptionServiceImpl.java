@@ -8,6 +8,7 @@ import com.zcy.invest.model.IqOptionLoginResponse;
 import com.zcy.invest.service.IqOptionService;
 import com.zcy.invest.util.HttpClientUtil;
 import com.zcy.invest.util.StringUtil;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,6 +18,7 @@ import java.util.Map;
  * @brief ecs insight
  * @note 修订历史： 1、yangzhouchuan于2018/12/17设计并构建初始版本v1.0.0
  */
+@Service
 public class IqOptionServiceImpl implements IqOptionService {
 
     /**

@@ -12,7 +12,7 @@ public class Test {
     public static void main(String[] args) throws Exception{
 
         IqOptionServiceImpl iqOptionService = new IqOptionServiceImpl();
-        String ss = iqOptionService.login(SecretContent.IQOPTION_USERNAME,SecretContent.Common_Password);
+        String ss = iqOptionService.login(SecretContent.Email_QQ_851883560,SecretContent.Common_Password);
         System.out.println(ss);
     }
 }
