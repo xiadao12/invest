@@ -9,7 +9,7 @@ package com.zcy.invest.core;
  */
 public class SecretContent {
 
+    public final static String Common_Password = ;
     public final static String IQOPTION_USERNAME = "851883560@qq.com";
-    public final static String IQOPTION_Password =
 
 }
