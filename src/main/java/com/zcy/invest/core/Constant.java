@@ -8,7 +8,7 @@ package com.zcy.invest.core;
 public class Constant {
 
     //定义网页请求2
-    //investing查询外汇
+    //investing查询外汇2
     public final static String WEB_INVESTING_QUERYFX = "https://www.investing.com/technical/Service/GetSummaryTable";
     //iqoption登录
     public final static String WEB_IQOPTION_LOGIN = "https://auth.iqoption.com/api/v1.0/login";
