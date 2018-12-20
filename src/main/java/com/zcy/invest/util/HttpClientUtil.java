@@ -216,12 +216,15 @@ public class HttpClientUtil {
         if(httpHeader != null && httpHeader.getContentType() != null){
             String contentType = httpHeader.getContentType();
             //如果是multipart/form-data提交，则涉及到文件上传
-            if(contentType.equals("multipart/form-data")){
+            if(contentType.contains("multipart/form-data")){
+                String paramsString = jonitParams(paramMap);
+                StringEntity entity = new StringEntity(paramsString, charSet);
+                httpPost.setEntity(entity);
                 //处理
                 return;
             }
 
-            if(contentType.equals("application/json")){
+            if(contentType.contains("application/json")){
                 //处理
                 return;
             }
