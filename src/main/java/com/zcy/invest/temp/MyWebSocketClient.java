@@ -4,6 +4,7 @@ import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
 
 import java.net.URI;
+import java.net.URISyntaxException;
 
 /**
  * @author 苏州中科蓝迪公司所有(c)2016-2021
@@ -13,8 +14,8 @@ import java.net.URI;
  */
 public class MyWebSocketClient extends WebSocketClient {
 
-    public MyWebSocketClient(URI serverUri) {
-        super(serverUri);
+    public MyWebSocketClient(String url) throws URISyntaxException {
+        super(new URI(url));
     }
 
     @Override
