@@ -1,4 +1,4 @@
-package com.zcy.invest.model;
+package com.zcy.invest.model.iq.request;
 
 /**
  * @version 1.0.0

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zcy.invest.core.Constant;
 import com.zcy.invest.core.HttpHeader;
-import com.zcy.invest.model.IqOptionLoginResponse;
+import com.zcy.invest.model.iq.request.IqOptionLoginResponse;
 import com.zcy.invest.service.IqOptionService;
 import com.zcy.invest.util.HttpClientUtil;
 import com.zcy.invest.util.StringUtil;
@@ -23,15 +23,16 @@ public class IqOptionServiceImpl implements IqOptionService {
 
     /**
      * 根据email和密码登录iqoption，获取ssid
+     *
      * @param username
      * @param password
      * @return
      */
     @Override
-    public String login(String username, String password) throws Exception{
+    public String login(String username, String password) throws Exception {
 
         //判断参数
-        if(StringUtil.isEmpty(username) || StringUtil.isEmpty(password)){
+        if (StringUtil.isEmpty(username) || StringUtil.isEmpty(password)) {
             throw new RuntimeException("iqoption的用户名或密码为空，无法登录获取ssid");
         }
 
@@ -63,10 +64,11 @@ public class IqOptionServiceImpl implements IqOptionService {
 
         //将String转为登录返回对象，获取ssid
         ObjectMapper objectMapper = new ObjectMapper();
-        IqOptionLoginResponse iqOptionLoginResponse = objectMapper.readValue(responseString, new TypeReference<IqOptionLoginResponse>(){});
-        if(iqOptionLoginResponse != null){
+        IqOptionLoginResponse iqOptionLoginResponse = objectMapper.readValue(responseString, new TypeReference<IqOptionLoginResponse>() {
+        });
+        if (iqOptionLoginResponse != null) {
             IqOptionLoginResponse.Data data = iqOptionLoginResponse.getData();
-            if(data != null){
+            if (data != null) {
                 ssid = data.getSsid();
             }
         }

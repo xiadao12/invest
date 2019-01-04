@@ -1,10 +1,7 @@
 package com.zcy.invest.temp;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zcy.invest.core.SecretContent;
-import com.zcy.invest.model.IqHeartbeat;
-import com.zcy.invest.model.IqReceiveCandles;
-import com.zcy.invest.service.impl.IqOptionServiceImpl;
+import com.zcy.invest.model.iq.request.IqHeartbeat;
 import org.java_websocket.WebSocket;
 import org.java_websocket.client.WebSocketClient;
 
@@ -14,11 +11,15 @@ import org.java_websocket.client.WebSocketClient;
  * @note 修订历史： 1、yangzhouchuan于2018/12/17设计并构建初始版本v1.0.0
  */
 public class Test {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
 
 /*        IqOptionServiceImpl iqOptionService = new IqOptionServiceImpl();
         String ss = iqOptionService.login(SecretContent.Email_QQ_851883560,SecretContent.Common_Password);
         System.out.println(ss);*/
+
+/*        WebSocket ws = new WebSocket('wss://iqoption.com/echo/websocket', {
+                "origin":'https://iqoption.com/traderoom/',
+  });*/
 
         WebSocketClient webSocketClient = new MyWebSocketClient("wss://iqoption.com/echo/websocket");
         webSocketClient.connect();
@@ -27,7 +28,7 @@ public class Test {
         }
         System.out.println("建立websocket连接");
 
-        IqReceiveCandles.Body body = new IqReceiveCandles.Body();
+/*        IqReceiveCandles.Body body = new IqReceiveCandles.Body();
         body.setActive_id(4L);
         body.setSize(60L);
         body.setFrom_id(427750L);
@@ -47,12 +48,12 @@ public class Test {
         ObjectMapper objectMapper = new ObjectMapper();
         String value = objectMapper.writeValueAsString(iqReceiveCandles);
         System.out.println(value);
-        webSocketClient.send(value);
+        webSocketClient.send(value);*/
 
-/*
+
         int num = 1;
 
-        while (true){
+        while (true) {
             IqHeartbeat.Msg msg = new IqHeartbeat.Msg();
 
             Long currentTime = System.currentTimeMillis();
@@ -71,9 +72,8 @@ public class Test {
             webSocketClient.send(value);
             Thread.sleep(2000);
 
-
-            num ++ ;
-        }*/
+            num++;
+        }
 
     }
 }

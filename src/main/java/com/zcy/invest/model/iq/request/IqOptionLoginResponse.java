@@ -1,11 +1,11 @@
-package com.zcy.invest.model;
+package com.zcy.invest.model.iq.request;
 
 /**
  * IqOption登录返回对象
  * {
- *   "data": {
- *     "ssid": "e94c06fbeff03c7e079a837c70780beb"
- *   }
+ * "data": {
+ * "ssid": "e94c06fbeff03c7e079a837c70780beb"
+ * }
  * }
  *
  * @version 1.0.0
@@ -28,7 +28,7 @@ public class IqOptionLoginResponse {
     /**
      * 静态内部类
      */
-    public static class Data{
+    public static class Data {
         //ssid
         private String ssid;
 

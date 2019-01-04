@@ -1,11 +1,11 @@
-package com.zcy.invest.model;
+package com.zcy.invest.model.iq.request;
 
 /**
  * @version 1.0.0
  * @brief ecs insight
  * @note 修订历史： 1、yangzhouchuan于2018/12/21设计并构建初始版本v1.0.0
  */
-public class IqReceiveCandles extends IqBaseRequest{
+public class IqReceiveCandles extends IqBaseRequest {
 
     Msg msg;
 
@@ -20,7 +20,7 @@ public class IqReceiveCandles extends IqBaseRequest{
     /**
      * 内部类
      */
-    public static class Msg{
+    public static class Msg {
         private String name;
         private String version;
         //内部类
@@ -54,7 +54,7 @@ public class IqReceiveCandles extends IqBaseRequest{
     /**
      * 内部类
      */
-    public static class Body{
+    public static class Body {
         private Long active_id;
         private Long size;
         private Long from_id;

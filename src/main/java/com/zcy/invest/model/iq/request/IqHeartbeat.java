@@ -1,4 +1,4 @@
-package com.zcy.invest.model;
+package com.zcy.invest.model.iq.request;
 
 /**
  * 心跳
@@ -7,7 +7,7 @@ package com.zcy.invest.model;
  * @brief ecs insight
  * @note 修订历史： 1、yangzhouchuan于2018/12/21设计并构建初始版本v1.0.0
  */
-public class IqHeartbeat extends IqBaseRequest{
+public class IqHeartbeat extends IqBaseRequest {
 
     //内部类
     private Msg msg;
@@ -20,7 +20,7 @@ public class IqHeartbeat extends IqBaseRequest{
         this.msg = msg;
     }
 
-    public static class Msg{
+    public static class Msg {
 
         private String userTime;
         private String heartbeatTime;
