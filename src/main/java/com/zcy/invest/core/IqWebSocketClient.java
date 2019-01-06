@@ -3,10 +3,14 @@ package com.zcy.invest.core;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zcy.invest.model.iq.request.IqRequest;
 import com.zcy.invest.model.iq.response.CandleGeneratedResponse;
+import com.zcy.invest.service.DealMessageService;
 import com.zcy.invest.service.impl.IqServiceImpl;
 import com.zcy.invest.util.JsonUtil;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -26,6 +30,12 @@ public class IqWebSocketClient extends WebSocketClient {
     //websocket请求路径
     private final static String websocketUrl = "wss://iqoption.com/echo/websocket";
 
+    //日志
+    private Logger logger = LoggerFactory.getLogger(getClass());
+
+    @Autowired
+    DealMessageService dealMessageService;
+
     /**
      * 构造方法
      *
@@ -42,7 +52,7 @@ public class IqWebSocketClient extends WebSocketClient {
      */
     @Override
     public void onOpen(ServerHandshake serverHandshake) {
-        System.out.println("websocket__open");
+        logger.info("iqwebsocket已连接");
 
         //获取请求id
         String ssid_request_id = IqServiceImpl.getRequestId();
@@ -69,7 +79,7 @@ public class IqWebSocketClient extends WebSocketClient {
      */
     @Override
     public void onMessage(String s) {
-        System.out.println("websocket__message" + s);
+        logger.info("iqwebsocket接收到消息：" + s);
 
         //处理接收到的消息
         dealMessage(s);
@@ -84,7 +94,7 @@ public class IqWebSocketClient extends WebSocketClient {
      */
     @Override
     public void onClose(int i, String s, boolean b) {
-        System.out.println("websocket__close");
+        logger.info("iqwebsocket连接已关闭");
     }
 
     /**
@@ -94,7 +104,7 @@ public class IqWebSocketClient extends WebSocketClient {
      */
     @Override
     public void onError(Exception e) {
-        System.out.println("websocket__error");
+        logger.info("iqwebsocket出错error");
     }
 
     /**
@@ -110,7 +120,7 @@ public class IqWebSocketClient extends WebSocketClient {
             //蜡烛图信息
             if (message.contains("candle-generated")) {
                 CandleGeneratedResponse candleGeneratedResponse = objectMapper.readValue(message, CandleGeneratedResponse.class);
-                System.out.println(candleGeneratedResponse);
+                dealMessageService.dealCandleGenerated(candleGeneratedResponse);
             }
         } catch (IOException e) {
             e.printStackTrace();
