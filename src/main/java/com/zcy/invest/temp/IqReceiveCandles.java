@@ -6,6 +6,10 @@ package com.zcy.invest.model.iq.request;
  * @version 1.0.0
  * @brief ecs insight
  * @note 修订历史： 1、yangzhouchuan于2018/12/21设计并构建初始版本v1.0.0
+ * <p>
+ * 内部类
+ * <p>
+ * 内部类
  *//*
 
 public class IqReceiveCandles extends IqRequest {
@@ -22,8 +26,8 @@ public class IqReceiveCandles extends IqRequest {
 
     */
 /**
-     * 内部类
-     *//*
+ * 内部类
+ *//*
 
     public static class Msg {
         private String name;
@@ -58,8 +62,8 @@ public class IqReceiveCandles extends IqRequest {
 
     */
 /**
-     * 内部类
-     *//*
+ * 内部类
+ *//*
 
     public static class Body {
         private Long active_id;

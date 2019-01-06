@@ -10,11 +10,12 @@ public class JsonUtil {
 
     /**
      * 将对象转为json字符串
+     *
      * @param object
      * @return
      * @throws Exception
      */
-    public static String ObjectToJson(Object object){
+    public static String ObjectToJson(Object object) {
         ObjectMapper objectMapper = new ObjectMapper();
         String json = null;
         try {

@@ -28,6 +28,7 @@ public class IqWebSocketClient extends WebSocketClient {
 
     /**
      * 构造方法
+     *
      * @throws URISyntaxException
      */
     public IqWebSocketClient() throws URISyntaxException {
@@ -36,10 +37,11 @@ public class IqWebSocketClient extends WebSocketClient {
 
     /**
      * 监听websocket连接
+     *
      * @param serverHandshake
      */
     @Override
-    public void onOpen(ServerHandshake serverHandshake){
+    public void onOpen(ServerHandshake serverHandshake) {
         System.out.println("websocket__open");
 
         //获取请求id
@@ -49,7 +51,7 @@ public class IqWebSocketClient extends WebSocketClient {
         //{"name":"ssid","request_id":"1546751287_1049553889","msg":"a87f0428c732dbb972c114dfd5ed6981"}
         IqRequest ssidRequest = new IqRequest<String>(
                 "ssid",
-                ssid_request_id,"a87f0428c732dbb972c114dfd5ed6981"
+                ssid_request_id, "a87f0428c732dbb972c114dfd5ed6981"
         );
         String ssidRequestJson = null;
         ssidRequestJson = JsonUtil.ObjectToJson(ssidRequest);
@@ -62,6 +64,7 @@ public class IqWebSocketClient extends WebSocketClient {
 
     /**
      * 监听websocket接收消息
+     *
      * @param s
      */
     @Override
@@ -74,6 +77,7 @@ public class IqWebSocketClient extends WebSocketClient {
 
     /**
      * 监听websocket关闭
+     *
      * @param i
      * @param s
      * @param b
@@ -85,6 +89,7 @@ public class IqWebSocketClient extends WebSocketClient {
 
     /**
      * 监听websocket出错
+     *
      * @param e
      */
     @Override
@@ -94,15 +99,16 @@ public class IqWebSocketClient extends WebSocketClient {
 
     /**
      * 处理消息
+     *
      * @param message
      */
-    private void dealMessage(String message){
+    private void dealMessage(String message) {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
             //判断是什么信息
             //蜡烛图信息
-            if(message.contains("candle-generated")){
+            if (message.contains("candle-generated")) {
                 CandleGeneratedResponse candleGeneratedResponse = objectMapper.readValue(message, CandleGeneratedResponse.class);
                 System.out.println(candleGeneratedResponse);
             }

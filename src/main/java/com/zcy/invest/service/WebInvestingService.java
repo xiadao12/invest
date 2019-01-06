@@ -8,6 +8,7 @@ import com.zcy.invest.filter.WebInvestingFilter;
 public interface WebInvestingService {
     /**
      * 查询外汇
+     *
      * @param webInvestingFilter
      * @return
      */

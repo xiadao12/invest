@@ -4,6 +4,10 @@ package com.zcy.invest.model.iq.request;
 */
 /**
  * create date : 2019/1/4
+ * <p>
+ * 内部类
+ * <p>
+ * 内部类
  *//*
 
 public class IqSetSocialUserProfileScreenStateClient extends IqRequest {
@@ -20,8 +24,8 @@ public class IqSetSocialUserProfileScreenStateClient extends IqRequest {
 
     */
 /**
-     * 内部类
-     *//*
+ * 内部类
+ *//*
 
     public static class Msg {
 
@@ -56,8 +60,8 @@ public class IqSetSocialUserProfileScreenStateClient extends IqRequest {
 
     */
 /**
-     * 内部类
-     *//*
+ * 内部类
+ *//*
 
     public static class Body {
         private Integer user_id;

@@ -62,7 +62,7 @@ public class HttpClientUtil {
         initHeader(httpPost, httpHeader);
 
         //设置参数
-        initEntity(httpPost,paramMap,httpHeader);
+        initEntity(httpPost, paramMap, httpHeader);
 
         CloseableHttpResponse response = null;
 
@@ -100,7 +100,7 @@ public class HttpClientUtil {
      * @param paramMap
      * @return
      */
-    private static String jonitParams(Map<String, Object> paramMap) throws Exception{
+    private static String jonitParams(Map<String, Object> paramMap) throws Exception {
 
         if (paramMap == null || paramMap.size() <= 0) {
             return "";
@@ -116,9 +116,9 @@ public class HttpClientUtil {
             }
 
             //如果是需要重复参数
-            if(value instanceof RepeatHttpParamList){
-                RepeatHttpParamList repeatHttpParamList = (RepeatHttpParamList)value;
-                for(Object repeatObjectvalue : repeatHttpParamList){
+            if (value instanceof RepeatHttpParamList) {
+                RepeatHttpParamList repeatHttpParamList = (RepeatHttpParamList) value;
+                for (Object repeatObjectvalue : repeatHttpParamList) {
                     result = result + key + "=" + repeatObjectvalue + "&";
                 }
                 continue;
@@ -140,7 +140,7 @@ public class HttpClientUtil {
      * @param httpMessage(可以使HttpGet或PostGet)
      * @param httpHeader
      */
-    private static void initHeader(HttpMessage httpMessage, HttpHeader httpHeader) throws Exception{
+    private static void initHeader(HttpMessage httpMessage, HttpHeader httpHeader) throws Exception {
         if (httpMessage == null || httpHeader == null) {
             return;
         }
@@ -203,20 +203,21 @@ public class HttpClientUtil {
 
     /**
      * 设置参数
+     *
      * @param paramMap
      * @param httpHeader
      */
-    private static void initEntity(HttpPost httpPost, Map<String, Object> paramMap, HttpHeader httpHeader) throws Exception{
-        if(httpPost == null || paramMap == null || paramMap.size() <= 0){
+    private static void initEntity(HttpPost httpPost, Map<String, Object> paramMap, HttpHeader httpHeader) throws Exception {
+        if (httpPost == null || paramMap == null || paramMap.size() <= 0) {
             return;
         }
 
         String charSet = "UTF-8";
 
-        if(httpHeader != null && httpHeader.getContentType() != null){
+        if (httpHeader != null && httpHeader.getContentType() != null) {
             String contentType = httpHeader.getContentType();
             //如果是multipart/form-data提交，则涉及到文件上传
-            if(contentType.contains("multipart/form-data")){
+            if (contentType.contains("multipart/form-data")) {
                 String paramsString = jonitParams(paramMap);
                 StringEntity entity = new StringEntity(paramsString, charSet);
                 httpPost.setEntity(entity);
@@ -224,7 +225,7 @@ public class HttpClientUtil {
                 return;
             }
 
-            if(contentType.contains("application/json")){
+            if (contentType.contains("application/json")) {
                 //处理
                 return;
             }

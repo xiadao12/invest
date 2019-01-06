@@ -2,7 +2,7 @@ package com.zcy.invest.core;
 
 /**
  * 请求的头信息
- *
+ * <p>
  * create date : 2018/12/1
  */
 public class HttpHeader {

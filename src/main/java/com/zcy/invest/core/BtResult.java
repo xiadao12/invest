@@ -12,14 +12,14 @@ public class BtResult<T> {
     //消息
     private String message;
 
-    public static BtResult OK(String message){
+    public static BtResult OK(String message) {
         BtResult btResult = new BtResult();
         btResult.code = 200;
         btResult.message = message;
         return btResult;
     }
 
-    public static BtResult OK(String message, Object data){
+    public static BtResult OK(String message, Object data) {
         BtResult btResult = new BtResult();
         btResult.code = 200;
         btResult.data = data;
@@ -28,14 +28,14 @@ public class BtResult<T> {
     }
 
 
-    public static BtResult ERROR(String message){
+    public static BtResult ERROR(String message) {
         BtResult btResult = new BtResult();
         btResult.code = 500;
         btResult.message = message;
         return btResult;
     }
 
-    public static BtResult ERROR(String message, Object data){
+    public static BtResult ERROR(String message, Object data) {
         BtResult btResult = new BtResult();
         btResult.code = 500;
         btResult.data = data;

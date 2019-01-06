@@ -16,6 +16,9 @@ import java.net.URISyntaxException;
  * @version 1.0.0
  * @brief ecs insight
  * @note 修订历史： 1、yangzhouchuan于2018/12/17设计并构建初始版本v1.0.0
+ * <p>
+ * 判断是否已连接
+ * @throws Exception
  *//*
 
 @Component
@@ -37,9 +40,9 @@ public class Test {
             }
 
             *//*
-*/
+ */
 /*{"name":"ssid","request_id":"1546751287_1049553889","msg":"a87f0428c732dbb972c114dfd5ed6981"}*//*
-*/
+ */
 /*
         } catch (URISyntaxException e) {
             e.printStackTrace();
@@ -49,10 +52,10 @@ public class Test {
 
     */
 /**
-     * 判断是否已连接
-     *
-     * @throws Exception
-     *//*
+ * 判断是否已连接
+ *
+ * @throws Exception
+ *//*
 
     //@Scheduled(cron = "* * * * * ?")
     public void judgeConnect() throws Exception {
@@ -116,13 +119,13 @@ public class Test {
         System.out.println(ss);*//*
 
 
-*/
+ */
 /*        WebSocket ws = new WebSocket('wss://iqoption.com/echo/websocket', {
                 "origin":'https://iqoption.com/traderoom/',
   });*//*
 
 
-*/
+ */
 /*        WebSocketClient webSocketClient = new MyWebSocketClient("wss://iqoption.com/echo/websocket");
         webSocketClient.connect();
         while (!webSocketClient.getReadyState().equals(WebSocket.READYSTATE.OPEN)) {
@@ -131,7 +134,7 @@ public class Test {
         System.out.println("建立websocket连接");*//*
 
 
-*/
+ */
 /*        IqReceiveCandles.Body body = new IqReceiveCandles.Body();
         body.setActive_id(4L);
         body.setSize(60L);
@@ -156,7 +159,7 @@ public class Test {
 
 
 
-*/
+ */
 /*        int num = 1;
 
         while (true) {

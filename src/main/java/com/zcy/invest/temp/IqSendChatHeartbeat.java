@@ -4,26 +4,40 @@ package com.zcy.invest.model.iq.request;
 */
 /**
  * create date : 2019/1/4
+ * <p>
+ * 默认构造方法
+ * <p>
+ * 构造方法
+ *
+ * @param name
+ * @param request_id
+ * @param msg_name
+ * @param msg_version
+ * @param msg_body_room_id
+ * <p>
+ * 内部类
+ * <p>
+ * 内部类
  *//*
 
 public class IqSendChatHeartbeat extends IqRequest {
 
     */
 /**
-     * 默认构造方法
-     *//*
+ * 默认构造方法
+ *//*
 
     public IqSendChatHeartbeat(){}
 
     */
 /**
-     * 构造方法
-     * @param name
-     * @param request_id
-     * @param msg_name
-     * @param msg_version
-     * @param msg_body_room_id
-     *//*
+ * 构造方法
+ * @param name
+ * @param request_id
+ * @param msg_name
+ * @param msg_version
+ * @param msg_body_room_id
+ *//*
 
     public IqSendChatHeartbeat(String name,
                                String request_id,
@@ -57,8 +71,8 @@ public class IqSendChatHeartbeat extends IqRequest {
 
     */
 /**
-     * 内部类
-     *//*
+ * 内部类
+ *//*
 
     public static class Msg {
         private String name;
@@ -92,8 +106,8 @@ public class IqSendChatHeartbeat extends IqRequest {
 
     */
 /**
-     * 内部类
-     *//*
+ * 内部类
+ *//*
 
     public static class Body {
         private String room_id;

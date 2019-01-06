@@ -9,11 +9,12 @@ public class StringUtil {
 
     /**
      * 判断字符串是否为null或为空
+     *
      * @param value
      * @return
      */
-    public static Boolean isEmpty(String value){
-        if(value == null || value.isEmpty()){
+    public static Boolean isEmpty(String value) {
+        if (value == null || value.isEmpty()) {
             return true;
         }
         return false;
@@ -21,16 +22,16 @@ public class StringUtil {
 
     /**
      * 判断字符串是否非null而且非空
+     *
      * @param value
      * @return
      */
-    public static Boolean isNotEmpty(String value){
-        if(value != null && !value.isEmpty()){
+    public static Boolean isNotEmpty(String value) {
+        if (value != null && !value.isEmpty()) {
             return true;
         }
         return false;
     }
-
 
 
 }

@@ -11,17 +11,19 @@ public class RequestCandleGeneratedMsg {
     /**
      * 默认构造方法
      */
-    public RequestCandleGeneratedMsg(){}
+    public RequestCandleGeneratedMsg() {
+    }
 
     /**
      * 构造方法
+     *
      * @param name
      * @param params_routingFilters_active_id
      * @param params_routingFilters_size
      */
     public RequestCandleGeneratedMsg(String name,
                                      Integer params_routingFilters_active_id,
-                                     Integer params_routingFilters_size){
+                                     Integer params_routingFilters_size) {
 
         RoutingFilters routingFilters = new RoutingFilters();
         routingFilters.setActive_id(params_routingFilters_active_id);

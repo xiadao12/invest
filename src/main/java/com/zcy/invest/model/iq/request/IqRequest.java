@@ -16,9 +16,10 @@ public class IqRequest<T> {
     /**
      * 默认构造方法
      */
-    public IqRequest(){}
+    public IqRequest() {
+    }
 
-    public IqRequest(String name, String request_id, T msg){
+    public IqRequest(String name, String request_id, T msg) {
         this.name = name;
         this.request_id = request_id;
         this.msg = msg;

@@ -19,7 +19,7 @@ public class CandleGeneratedResponse extends IqResponse {
     /**
      * 内部类
      */
-    public class Msg{
+    public class Msg {
         private Integer active_id;
         private Integer size;
         private Long at;

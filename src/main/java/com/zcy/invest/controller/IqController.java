@@ -24,7 +24,7 @@ public class IqController {
      * 打开连接
      */
     @GetMapping("/openConnect")
-    public BtResult<?> openConnect() throws Exception{
+    public BtResult<?> openConnect() throws Exception {
         //IqWebSocketClient iqWebSocketClient = IqWebSocketClient.getIqWebSocketClient();
         iqWebSocketClient.connect();
         return BtResult.OK("执行成功");
@@ -32,11 +32,12 @@ public class IqController {
 
     /**
      * 获取蜡烛图
+     *
      * @return
      * @throws Exception
      */
     @GetMapping("/getCandleGenerated")
-    public BtResult getCandleGenerated() throws Exception{
+    public BtResult getCandleGenerated() throws Exception {
         //蜡烛图请求
         RequestCandleGeneratedMsg requestCandleGeneratedMsg = new RequestCandleGeneratedMsg(
                 "candle-generated",

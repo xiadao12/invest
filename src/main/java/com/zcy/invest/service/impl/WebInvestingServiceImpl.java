@@ -24,9 +24,9 @@ public class WebInvestingServiceImpl implements WebInvestingService {
      * @return
      */
     @Override
-    public String queryFx(WebInvestingFilter webInvestingFilter) throws Exception{
+    public String queryFx(WebInvestingFilter webInvestingFilter) throws Exception {
 
-        if(webInvestingFilter == null){
+        if (webInvestingFilter == null) {
             return "";
         }
 
@@ -51,7 +51,7 @@ public class WebInvestingServiceImpl implements WebInvestingService {
         //外汇集合
         RepeatHttpParamList fxList = new RepeatHttpParamList();
 
-        for(int i=1;i<=100;i++){
+        for (int i = 1; i <= 100; i++) {
             fxList.add(i);
         }
 

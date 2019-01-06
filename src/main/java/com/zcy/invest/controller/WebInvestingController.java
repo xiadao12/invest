@@ -20,11 +20,12 @@ public class WebInvestingController {
 
     /**
      * 查询外汇
+     *
      * @param webInvestingFilter
      * @return
      */
     @PostMapping("/queryfx")
-    public Object queryFx(WebInvestingFilter webInvestingFilter) throws Exception{
+    public Object queryFx(WebInvestingFilter webInvestingFilter) throws Exception {
         return webInvestingService.queryFx(webInvestingFilter);
     }
 
