@@ -1,9 +1,12 @@
+/*
 package com.zcy.invest.model.iq.request;
 
+*/
 /**
  * create date : 2019/1/4
- */
-public class IqUpdateUserAvailability extends IqBaseRequest {
+ *//*
+
+public class IqUpdateUserAvailability extends IqRequest {
 
     //内部类
     private Msg msg;
@@ -16,9 +19,11 @@ public class IqUpdateUserAvailability extends IqBaseRequest {
         this.msg = msg;
     }
 
-    /**
+    */
+/**
      * 内部类
-     */
+     *//*
+
     public static class Msg {
 
         private String name;
@@ -89,3 +94,4 @@ public class IqUpdateUserAvailability extends IqBaseRequest {
         }
     }
 }
+*/

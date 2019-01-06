@@ -1,9 +1,12 @@
+/*
 package com.zcy.invest.model.iq.request;
 
+*/
 /**
  * create date : 2019/1/4
- */
-public class IqSetSocialUserProfileScreenStateClient extends IqBaseRequest {
+ *//*
+
+public class IqSetSocialUserProfileScreenStateClient extends IqRequest {
     //内部类
     private Msg msg;
 
@@ -15,9 +18,11 @@ public class IqSetSocialUserProfileScreenStateClient extends IqBaseRequest {
         this.msg = msg;
     }
 
-    /**
+    */
+/**
      * 内部类
-     */
+     *//*
+
     public static class Msg {
 
         private String name;
@@ -49,9 +54,11 @@ public class IqSetSocialUserProfileScreenStateClient extends IqBaseRequest {
         }
     }
 
-    /**
+    */
+/**
      * 内部类
-     */
+     *//*
+
     public static class Body {
         private Integer user_id;
         private Integer selected_asset_id;
@@ -100,3 +107,4 @@ public class IqSetSocialUserProfileScreenStateClient extends IqBaseRequest {
         }
     }
 }
+*/

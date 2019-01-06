@@ -4,8 +4,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zcy.invest.core.Constant;
 import com.zcy.invest.core.HttpHeader;
-import com.zcy.invest.model.iq.request.IqOptionLoginResponse;
-import com.zcy.invest.service.IqOptionService;
+import com.zcy.invest.model.iq.response.IqOptionLoginResponse;
+import com.zcy.invest.service.IqService;
 import com.zcy.invest.util.HttpClientUtil;
 import com.zcy.invest.util.StringUtil;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ import java.util.Map;
  * @note 修订历史： 1、yangzhouchuan于2018/12/17设计并构建初始版本v1.0.0
  */
 @Service
-public class IqOptionServiceImpl implements IqOptionService {
+public class IqServiceImpl implements IqService {
 
     /**
      * 根据email和密码登录iqoption，获取ssid
@@ -73,5 +73,20 @@ public class IqOptionServiceImpl implements IqOptionService {
             }
         }
         return ssid;
+    }
+
+    /**
+     * 获取请求的id
+     * @return
+     */
+    public static String getRequestId(){
+        //{"name":"ssid","request_id":"1546751287_1049553889","msg":"a87f0428c732dbb972c114dfd5ed6981"}
+        //获取系统时间戳(秒数)
+        Long systemTime = System.currentTimeMillis() / 1000;
+        //获取随机数据
+        String random = String.valueOf(Math.random()).substring(2,12);
+        //ssid请求的id
+        String ssid_request_id = systemTime + "_" + random;
+        return ssid_request_id;
     }
 }

@@ -1,4 +1,4 @@
-package com.zcy.invest.model.iq.request;
+package com.zcy.invest.model.iq.response;
 
 /**
  * IqOption登录返回对象
@@ -7,10 +7,6 @@ package com.zcy.invest.model.iq.request;
  * "ssid": "e94c06fbeff03c7e079a837c70780beb"
  * }
  * }
- *
- * @version 1.0.0
- * @brief ecs insight
- * @note 修订历史： 1、yangzhouchuan于2018/12/17设计并构建初始版本v1.0.0
  */
 public class IqOptionLoginResponse {
 
