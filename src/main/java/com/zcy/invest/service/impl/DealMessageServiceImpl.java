@@ -1,8 +1,14 @@
 package com.zcy.invest.service.impl;
 
 import com.zcy.invest.model.iq.response.CandleGeneratedResponse;
+import com.zcy.invest.model.iq.response.CandlesResponse;
+import com.zcy.invest.model.iq.response.TimeSyncResponse;
 import com.zcy.invest.service.DealMessageService;
+import com.zcy.invest.service.IqTryStrategyService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * create date : 2019/1/6
@@ -12,6 +18,12 @@ public class DealMessageServiceImpl implements DealMessageService {
 
     //记录上一个蜡烛信息
     private static CandleGeneratedResponse preCandleGeneratedResponse;
+
+    //服务器时间戳
+    public static Long timeSync;
+
+    @Autowired
+    IqTryStrategyService iqTryStrategyService;
 
     /**
      * 处理蜡烛图消息
@@ -44,5 +56,39 @@ public class DealMessageServiceImpl implements DealMessageService {
         }
         //将最新的蜡烛图赋值
         preCandleGeneratedResponse = candleGeneratedResponse;
+    }
+
+    @Override
+    public void dealTimeSync(TimeSyncResponse timeSyncResponse) {
+
+        if(timeSyncResponse == null){
+            return;
+        }
+
+        timeSync = timeSyncResponse.getMsg();
+    }
+
+    /**
+     * 处理蜡烛图集合
+     * @param candlesResponse
+     */
+    @Override
+    public void dealCandles(CandlesResponse candlesResponse) {
+        if(candlesResponse == null){
+            return;
+        }
+
+        CandlesResponse.Msg msg = candlesResponse.getMsg();
+        if(msg == null){
+            return;
+        }
+
+        List<CandlesResponse.Candle> candles =  msg.getCandles();
+        if(candles == null || candles.size() <=0){
+            return;
+        }
+
+        iqTryStrategyService.strategy1(candles);
+
     }
 }

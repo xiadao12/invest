@@ -1,6 +1,8 @@
 package com.zcy.invest.model.iq.response;
 
 /**
+ * 实时蜡烛图
+ *
  * create date : 2019/1/6
  */
 public class CandleGeneratedResponse extends IqResponse {

@@ -3,6 +3,8 @@ package com.zcy.invest.controller;
 import com.zcy.invest.core.BtResult;
 import com.zcy.invest.core.IqWebSocketClient;
 import com.zcy.invest.model.iq.request.CandleGeneratedRequest;
+import com.zcy.invest.model.iq.request.GetCandlesRequest;
+import com.zcy.invest.util.IqUtil;
 import com.zcy.invest.util.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,13 +31,13 @@ public class IqController {
     }
 
     /**
-     * 获取蜡烛图
+     * 获取实时蜡烛图
      *
      * @return
      * @throws Exception
      */
-    @GetMapping("/getCandleGenerated")
-    public BtResult getCandleGenerated() throws Exception {
+    @GetMapping("/getCurrentCandleGenerated")
+    public BtResult getCurrentCandleGenerated() throws Exception {
         //蜡烛图请求
         CandleGeneratedRequest candleGeneratedRequest = new CandleGeneratedRequest(
                 "s_71",
@@ -47,4 +49,28 @@ public class IqController {
         return BtResult.OK("执行成功");
     }
 
+    /**
+     * 获取起止时间蜡烛图
+     * @return
+     * @throws Exception
+     */
+    @GetMapping("/getCandleGenerated")
+    public BtResult getCandleGenerated() throws Exception{
+
+        //获取时间点id
+        Long currentId = IqUtil.getCurrentId();
+
+        String request_id = IqUtil.getRequestId();
+        System.out.println(request_id);
+
+        GetCandlesRequest getCandlesRequest = new GetCandlesRequest(
+                request_id,
+                2,
+                60,
+                currentId-600,
+                currentId);
+
+        iqWebSocketClient.sendObject(getCandlesRequest);
+        return BtResult.OK("执行成功");
+    }
 }

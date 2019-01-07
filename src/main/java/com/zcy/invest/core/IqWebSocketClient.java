@@ -3,6 +3,8 @@ package com.zcy.invest.core;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zcy.invest.model.iq.request.SsidRequest;
 import com.zcy.invest.model.iq.response.CandleGeneratedResponse;
+import com.zcy.invest.model.iq.response.CandlesResponse;
+import com.zcy.invest.model.iq.response.TimeSyncResponse;
 import com.zcy.invest.service.DealMessageService;
 import com.zcy.invest.service.impl.IqServiceImpl;
 import com.zcy.invest.util.JsonUtil;
@@ -109,17 +111,34 @@ public class IqWebSocketClient extends WebSocketClient {
      * @param message
      */
     private void dealMessage(String message) {
-        ObjectMapper objectMapper = new ObjectMapper();
+        //System.out.println(message);
 
+        ObjectMapper objectMapper = new ObjectMapper();
         try {
             //判断是什么信息
-            //蜡烛图信息
             if (message.contains("candle-generated")) {
+                //实时蜡烛图信息
                 CandleGeneratedResponse candleGeneratedResponse = objectMapper.readValue(message, CandleGeneratedResponse.class);
                 dealMessageService.dealCandleGenerated(candleGeneratedResponse);
+            }else if(message.contains("timeSync")){
+                //服务器时间（毫秒）
+                TimeSyncResponse timeSyncResponse = objectMapper.readValue(message,TimeSyncResponse.class);
+                dealMessageService.dealTimeSync(timeSyncResponse);
+            }else if(message.contains("candles")){
+                CandlesResponse candlesResponse = objectMapper.readValue(message,CandlesResponse.class);
+                dealMessageService.dealCandles(candlesResponse);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 发送对象
+     * @param object
+     */
+    public void sendObject(Object object){
+        String jsonString = JsonUtil.ObjectToJson(object);
+        send(jsonString);
     }
 }
