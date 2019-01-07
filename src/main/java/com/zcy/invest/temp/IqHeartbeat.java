@@ -1,19 +1,22 @@
+/*
 package com.zcy.invest.temp;
 
-import com.zcy.invest.model.iq.request.IqRequest;
-
+*/
 /**
  * 心跳
  *
  * @version 1.0.0
  * @brief ecs insight
  * @note 修订历史： 1、yangzhouchuan于2018/12/21设计并构建初始版本v1.0.0
- */
+ *//*
+
 public class IqHeartbeat extends IqRequest {
 
-    /**
+    */
+/**
      * 默认构造方法
-     */
+     *//*
+
     public IqHeartbeat() {
     }
 
@@ -64,3 +67,4 @@ public class IqHeartbeat extends IqRequest {
     }
 
 }
+*/

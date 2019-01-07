@@ -1,7 +1,7 @@
 package com.zcy.invest.core;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zcy.invest.model.iq.request.IqRequest;
+import com.zcy.invest.model.iq.request.SsidRequest;
 import com.zcy.invest.model.iq.response.CandleGeneratedResponse;
 import com.zcy.invest.service.DealMessageService;
 import com.zcy.invest.service.impl.IqServiceImpl;
@@ -59,17 +59,13 @@ public class IqWebSocketClient extends WebSocketClient {
 
         //发送ssid请求
         //{"name":"ssid","request_id":"1546751287_1049553889","msg":"a87f0428c732dbb972c114dfd5ed6981"}
-        IqRequest ssidRequest = new IqRequest<String>(
-                "ssid",
-                ssid_request_id, "a87f0428c732dbb972c114dfd5ed6981"
+        SsidRequest ssidRequest = new SsidRequest(
+                ssid_request_id,
+                "a87f0428c732dbb972c114dfd5ed6981"
         );
         String ssidRequestJson = null;
         ssidRequestJson = JsonUtil.ObjectToJson(ssidRequest);
         this.send(ssidRequestJson);
-        /*
-        send('setOptions', { sendResults: true }, () => {}, -1);
-        send('ssid', user.ssid, funcs.open);
-        */
     }
 
     /**

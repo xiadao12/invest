@@ -2,8 +2,7 @@ package com.zcy.invest.controller;
 
 import com.zcy.invest.core.BtResult;
 import com.zcy.invest.core.IqWebSocketClient;
-import com.zcy.invest.model.iq.request.IqRequest;
-import com.zcy.invest.model.iq.request.msg.RequestCandleGeneratedMsg;
+import com.zcy.invest.model.iq.request.CandleGeneratedRequest;
 import com.zcy.invest.util.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +24,6 @@ public class IqController {
      */
     @GetMapping("/openConnect")
     public BtResult<?> openConnect() throws Exception {
-        //IqWebSocketClient iqWebSocketClient = IqWebSocketClient.getIqWebSocketClient();
         iqWebSocketClient.connect();
         return BtResult.OK("执行成功");
     }
@@ -39,16 +37,11 @@ public class IqController {
     @GetMapping("/getCandleGenerated")
     public BtResult getCandleGenerated() throws Exception {
         //蜡烛图请求
-        RequestCandleGeneratedMsg requestCandleGeneratedMsg = new RequestCandleGeneratedMsg(
-                "candle-generated",
-                76,
-                60
-        );
-        IqRequest candleGeneratedRequest = new IqRequest<RequestCandleGeneratedMsg>(
-                "subscribeMessage",
+        CandleGeneratedRequest candleGeneratedRequest = new CandleGeneratedRequest(
                 "s_71",
-                requestCandleGeneratedMsg
-        );
+                4,
+                60);
+
         String candleGeneratedRequestJson = JsonUtil.ObjectToJson(candleGeneratedRequest);
         iqWebSocketClient.send(candleGeneratedRequestJson);
         return BtResult.OK("执行成功");
