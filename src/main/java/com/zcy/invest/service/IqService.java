@@ -1,5 +1,8 @@
 package com.zcy.invest.service;
 
+import com.zcy.invest.model.iq.CandleMessage;
+import com.zcy.invest.model.iq.response.CandlesResponse;
+
 /**
  * @version 1.0.0
  * @brief ecs insight
